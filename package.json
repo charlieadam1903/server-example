@@ -1,0 +1,16 @@
+{
+  "name": "server-example",
+  "version": "1.0.0",
+  "description": "take two from lecture on third party server packages",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "foo": "echo foo"
+  },
+  "author": "Charlie Adam",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
