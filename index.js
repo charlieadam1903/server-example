@@ -1,14 +1,26 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express(); //create app
 
-app.use(express.json()); //add capability to understand json data 
+//app.use(express.json()); //add capability to understand json data 
+app.use(cookieParser()); //if cookie in there itll parse cookie and make easy to access
 //coming in to our server, if its json content type it will parse it and make available to us
 const data = {
     likes: [],
 };
 
-app.get('/', (req, res) => {
-res.status(418).send("I'm a teapot"); //associate function w/ request coming in for url and calling that function
+const COOKIE_NAME = 'counter';
+
+app.get('/', (req, res) => { //root (route?) handler
+    let count = 1; 
+    if (COOKIE_NAME in req.cookies) {
+        count = req.cookies[COOKIE_NAME]; //parser module easily gets cookies from request
+        count++;
+    }
+    res.cookie(COOKIE_NAME, count);
+    res.json({count: count}); //returns count as json but also set a cookie on thta response 
+    //sets cookie header to lates verson of count value
+//res.status(418).send("I'm a teapot"); //associate function w/ request coming in for url and calling that function
 });
 
 app.get('/likes', (req, res) => {

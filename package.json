@@ -11,6 +11,7 @@
   "author": "Charlie Adam",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
     "nodemon": "^3.1.1"
   }
