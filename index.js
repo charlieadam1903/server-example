@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express(); //create app
+
 app.get('/', (req, res) => {
-res.json({hello: 'world'}); //associate function w/ request coming in for url and calling that function
+res.status(418).send("I'm a teapot"); //associate function w/ request coming in for url and calling that function
 });
 
 app.get('/foo', (req, res) => {
@@ -12,6 +13,7 @@ app.get('/foo', (req, res) => {
 const port = 3123; 
 
 console.log(`Server running at http://localhost:${port}`);
-app.listen(port); //tell app to listne to port
+app.listen(port); //tell app to listen to port
 
+//so can write a little application here that provides responses to HTTP requests
 //TO RETURN TO COMMAND LINE PROMPT IN TERMINAL ITS CONTROL + C!!
